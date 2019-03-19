@@ -11,4 +11,6 @@ module.exports = function (app) {
     app.get('/api/reports/get-report/:id', restrict, Reports.GetReport);
     app.post('/api/reports/publish-report', restrict, Reports.PublishReport);
     app.post('/api/reports/unpublish', restrict, Reports.UnpublishReport);
+    app.post('/api/reports/share-report', restrict, Reports.ShareReport);
+    app.post('/api/reports/unshare', restrict, Reports.UnshareReport);
 };

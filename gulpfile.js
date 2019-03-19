@@ -71,6 +71,8 @@ function dist_js_build () {
         'node_modules/angular-loading-overlay/dist/angular-loading-overlay.js',
         'node_modules/angular-xeditable/dist/js/xeditable.min.js',
         'node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js',
+        'node_modules/clipboard/dist/clipboard.min.js',
+        'node_modules/ngclipboard/dist/ngclipboard.min.js',
         'node_modules/ng-file-upload/dist/ng-file-upload.min.js',
         'node_modules/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.min.js',
         'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',

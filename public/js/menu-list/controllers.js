@@ -128,7 +128,8 @@ angular.module('app').controller('listCtrl', function ($scope, $rootScope, conne
             itemClick: 'View this report',
             delete: 'Delete this report',
             duplicate: 'Duplicate this report',
-            edit: 'Edit this report'
+            edit: 'Edit this report',
+
         };
 
         $scope.nav.text = {
@@ -143,6 +144,12 @@ angular.module('app').controller('listCtrl', function ($scope, $rootScope, conne
 
         $scope.getEditLink = function (item) {
             return '/#/reports/edit/' + item._id;
+        };
+
+        $scope.getCopyLink = function (item) {
+            const protocol = window.location.protocol;
+            const host = window.location.host;
+            return protocol + '//' + host + '/#/reports/view/' + item._id;
         };
 
         $scope.duplicate = function () {
@@ -359,6 +366,12 @@ angular.module('app').controller('listCtrl', function ($scope, $rootScope, conne
 
         $scope.getEditLink = function (item) {
             return '/#/dashboards/edit/' + item._id;
+        };
+
+        $scope.getCopyLink = function (item) {
+            const protocol = window.location.protocol;
+            const host = window.location.host;
+            return protocol + '//' + host + '/#/dashboards/view/' + item._id;
         };
 
         $scope.introOptions = {

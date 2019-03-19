@@ -821,8 +821,22 @@ angular.module('app').controller('dashBoardv2Ctrl', function ($scope, $location,
     }
 
     $scope.publishDashboard = function () {
-        $scope.objectToPublish = $scope.selectedDashboard;
+        $scope.objectToShare = $scope.selectedDashboard;
         $('#publishModal').modal('show');
+    };
+
+    $scope.shareDashboard = function () {
+        $scope.objectToShare = $scope.selectedDashboard;
+        $('#publishModal').modal('show');
+    };
+
+    $scope.Publish = function () {
+        const url = '/api/dashboardsv2/publish-page';
+        const params = { _id: $scope.selectedDashboard._id };
+        return connection.post(url, params).then(function (data) {
+            $scope.selectedDashboard.isPublic = true;
+            $('#publishModal').modal('show');
+        });
     };
 
     $scope.unPublish = function () {
@@ -832,10 +846,17 @@ angular.module('app').controller('dashBoardv2Ctrl', function ($scope, $location,
         });
     };
 
+    $scope.unShare = function () {
+        connection.post('/api/dashboardsv2/unshare', { _id: $scope.selectedDashboard._id }, function (data) {
+            $scope.selectedDashboard.isShared = false;
+            $('#publishModal').modal('hide');
+        });
+    };
+
     $scope.selectThisFolder = function (folderID) {
-        connection.post('/api/dashboardsv2/publish-page', { _id: $scope.selectedDashboard._id, parentFolder: folderID }).then(function (data) {
+        connection.post('/api/dashboardsv2/share-page', { _id: $scope.selectedDashboard._id, parentFolder: folderID }).then(function (data) {
             $scope.selectedDashboard.parentFolder = folderID;
-            $scope.selectedDashboard.isPublic = true;
+            $scope.selectedDashboard.isShared = true;
             $('#publishModal').modal('hide');
         });
     };

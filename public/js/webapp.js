@@ -6,7 +6,8 @@ angular.module('app', [
     'urungi.directives', 'ngSanitize', 'ui.select', 'angularUUID2', 'vs-repeat',
     'ui.bootstrap.datetimepicker', 'ui.tree', 'page.block', 'bsLoadingOverlay', 'xeditable',
     'intro.help', 'ngFileUpload', 'colorpicker.module',
-    'wst.inspector', 'gettext', 'ngFileSaver', 'app.core', 'app.data-sources'
+    'wst.inspector', 'gettext', 'ngFileSaver', 'ngclipboard',
+    'app.core', 'app.data-sources',
 ])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.otherwise({ redirectTo: '/home' });
@@ -131,11 +132,11 @@ angular.module('app', [
             controller: 'logOutCtrl'
         });
         // spaces
-        $routeProvider.when('/public-space', {
+        $routeProvider.when('/shared-space', {
             templateUrl: 'partials/spaces/index.html',
             controller: 'spacesCtrl'
         });
-        $routeProvider.when('/public-space/:extra', {
+        $routeProvider.when('/shared-space/:extra', {
             templateUrl: 'partials/spaces/index.html',
             controller: 'spacesCtrl'
         });

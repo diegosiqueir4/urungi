@@ -13,7 +13,7 @@
                     </a>
                 </h4>
                 <br>
-                <input ng-if="!field.date" type="text" ng-model="nav.filters[field.name]" 
+                <input ng-if="!field.date" type="text" ng-model="nav.filters[field.name]"
                 ng-keydown="filterKeydown($event)" ng-blur="filterBlur($event)">
             </span>
 
@@ -22,7 +22,7 @@
 
     <div id="reportListItem" class="list-group-item row" ng-repeat="item in nav.items">
         <span class="col-md-10">
-        
+
             <a  ng-click="nav.clickItem(item)" uib-tooltip="{{nav.tooltips.itemClick}}" tooltip-placement="bottom">
 
                 <span ng-repeat="field in nav.infoFields" ng-class="field.widthClass">
@@ -33,37 +33,38 @@
             </a>
             <span ng-if="layerButtons">
                 <a id="layerListItemStatus" class="badge pull-right"  ng-click="toggleActive(item)"
-                ng-class="{'badge-success': item.status == 'active', 'badge-danger': item.status == 'Not active'}" 
+                ng-class="{'badge-success': item.status == 'active', 'badge-danger': item.status == 'Not active'}"
                 uib-tooltip="Click here to change the status of the layer" tooltip-placement="left">{{item.status}}</a>
             </span>
         </span>
 
         <span  class="col-md-2">
             <span ng-if="nav.deleteButtons">
-                <a class="pull-right list-button btn-delete" ng-click="viewDeleteModal(item)" 
+                <a class="pull-right list-button btn-delete" ng-click="viewDeleteModal(item)"
                 uib-tooltip="{{nav.tooltips.delete}}" tooltip-placement="bottom">
                 <i class="fa fa-trash-o "  ></i>
                 </a>
             </span>
             <span ng-if="nav.editButtons">
 
-            
 
-                <a class="pull-right list-button btn-duplicate" ng-click="viewDuplicateModal(item)" 
+
+                <a class="pull-right list-button btn-duplicate" ng-click="viewDuplicateModal(item)"
                 uib-tooltip="{{nav.tooltips.duplicate}}" tooltip-placement="bottom">
                     <i class="fa fa-copy" ></i>
                 </a>
 
-                <a class="pull-right list-button btn-edit" href="{{getEditLink(item)}}"  
+                <a class="pull-right list-button btn-edit" href="{{getEditLink(item)}}"
                 uib-tooltip="{{nav.tooltips.edit}}" tooltip-placement="bottom">
                 <i class="fa fa-pencil" ></i>
                 </a>
 
-                <span ng-if="item.isPublic" class="badge badge-success pull-right published-tag">published</span>    
+                <button ngclipboard="" ngclipboard-success="onSuccess(e);" ngclipboard-error="onError(e);" data-clipboard-action="copy" data-clipboard-text="{{getCopyLink(item)}}"  ng-if="item.isPublic" uib-tooltip="Copy me" class="badge badge-success pull-right published-tag">published <i class="fa fa-clipboard"></i></button>
+
             </span>
         </span>
 
-        
+
 
     </div>
 
