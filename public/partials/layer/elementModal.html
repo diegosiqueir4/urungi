@@ -61,9 +61,9 @@
 
                     <input id="field-3" class="form-control" ng-model="modalElement.viewExpression" required>
 
-                    <ul id="legend-field-3" class="scroll-list btn-group-vertical">
+                    <ul id="legend-field-3" class="scroll-list">
                       <li ng-repeat="element in getElementsUsedInCustomExpression()">
-                    <p  class="card-text">{{'#' + element.elementID + '=' + element.elementLabel}}</p>
+                    {{'#' + element.elementID + ' ' + '='+ ' '  + element.elementLabel + '(' + element.collectionName + ')'}}
                     </li>
                     </ul>
 
