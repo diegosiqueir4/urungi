@@ -63,7 +63,7 @@ function dist_js_build () {
         'node_modules/numeral/min/numeral.min.js',
         'node_modules/angular-ui-tree/dist/angular-ui-tree.min.js',
         'node_modules/angular-file-saver/dist/angular-file-saver.bundle.min.js',
-        'node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js',
+        'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
         'node_modules/angular-ui-sortable/dist/sortable.min.js',
         'node_modules/ui-select/dist/select.min.js',
         'node_modules/d3/d3.min.js',

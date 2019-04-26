@@ -138,6 +138,17 @@ angular.module('app').controller('listCtrl', function ($scope, $rootScope, conne
             deleteBody: 'Are you sure you want to delete the report: '
         };
 
+        $scope.onCopySuccess = function (e) {
+            console.log(e);
+            $(e.trigger).tooltip({ title: 'Copied', trigger: 'manual' })
+                .on('shown.bs.tooltip', function () {
+                    setTimeout(() => {
+                        $(this).tooltip('destroy');
+                    }, 1000);
+                })
+                .tooltip('show');
+        };
+
         $scope.nav.clickItem = function (item) {
             $location.path('/reports/view/' + item._id);
         };

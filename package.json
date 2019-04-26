@@ -16,7 +16,7 @@
     "angular-loading-overlay": "^0.3.1",
     "angular-route": "^1.5.11",
     "angular-sanitize": "^1.5.11",
-    "angular-ui-bootstrap": "^0.14.3",
+    "angular-ui-bootstrap": "^2.5.6",
     "angular-ui-sortable": "^0.14.4",
     "angular-ui-tree": "^2.22.6",
     "angular-uuid2": "github:biblibre/angular-uuid#semver:^0.1.0",

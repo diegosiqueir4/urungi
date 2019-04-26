@@ -23,7 +23,7 @@
     <div id="reportListItem" class="list-group-item row" ng-repeat="item in nav.items">
         <span class="col-md-10">
 
-            <a  ng-click="nav.clickItem(item)" uib-tooltip="{{nav.tooltips.itemClick}}" tooltip-placement="bottom">
+            <a ng-click="nav.clickItem(item)" uib-tooltip="{{nav.tooltips.itemClick}}" tooltip-placement="bottom" style="cursor: pointer;">
 
                 <span ng-repeat="field in nav.infoFields" ng-class="field.widthClass">
                     <h5 ng-if="!field.date">{{item[field.name]}}</h5>
@@ -38,7 +38,7 @@
             </span>
         </span>
 
-        <span  class="col-md-2">
+        <span class="col-md-2">
             <span ng-if="nav.deleteButtons">
                 <a class="pull-right list-button btn-delete" ng-click="viewDeleteModal(item)"
                 uib-tooltip="{{nav.tooltips.delete}}" tooltip-placement="bottom">
@@ -59,8 +59,13 @@
                 <i class="fa fa-pencil" ></i>
                 </a>
 
-                <button ngclipboard="" ngclipboard-success="onSuccess(e);" ngclipboard-error="onError(e);" data-clipboard-action="copy" data-clipboard-text="{{getCopyLink(item)}}"  ng-if="item.isPublic" uib-tooltip="Copy me" class="badge badge-success pull-right published-tag">published <i class="fa fa-clipboard"></i></button>
-
+                <a class="list-button list-button-share pull-right"
+                    uib-tooltip="{{ 'Share' | translate }}"
+                    uib-popover-template="'share-popover.html'" popover-title="Share"
+                    popover-trigger="'outsideClick'"
+                >
+                    <i class="fa fa-share-alt"></i>
+                </a>
             </span>
         </span>
 
@@ -70,3 +75,17 @@
 
     <app-pager current-page="nav.currentPage" total-pages="nav.pages" on-page-change="goToPage(page)"></app-pager>
 </div>
+
+<script type="text/ng-template" id="share-popover.html">
+    <div class="form-group">
+      <label>Public URL</label>
+      <div class="input-group">
+        <input id="copy-link-{{ item.id }}" type="text" ng-value="getCopyLink(item)">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ngclipboard ngclipboard-success="onCopySuccess(e)" data-clipboard-target="#copy-link-{{ item.id }}">
+                <i class="fa fa-clipboard"></i>
+            </button>
+        </span>
+      </div>
+    </div>
+</script>

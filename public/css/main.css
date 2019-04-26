@@ -390,26 +390,9 @@ img.img-cirlce {
     padding-right: 0;
 }
 
-.btn {
-    display: inline-block;
-    margin-bottom: 2px;
-    font-weight: 400;
-    text-align: center;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-    white-space: nowrap;
-    padding: 6px 12px;
+.branded-border-panel .btn {
     font-size: 13px;
-    line-height: 1.42857143;
     border-radius: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    outline: 0;
 }
 
 .btn.text-left {
@@ -1630,10 +1613,6 @@ img.img-cirlce {
     border: 1px solid #afe9dd;
 }
 
-.in {
-    padding-left: 10px;
-}
-
 .schema-item-report {
     background: none;
 }
@@ -2483,6 +2462,7 @@ Palette
     border-radius: 5px;
     color: white;
     background-color: silver;
+    cursor: pointer;
 }
 
 .btn-delete {
@@ -3402,8 +3382,6 @@ label[for] {
 
 .list-group-item {
     background-color: #eee;
-    color: #bbb;
-    cursor: pointer;
 }
 
 .list-head {

@@ -9,7 +9,7 @@
     <div class="modal-body">
         <p>{{modalOptions.bodyText}}</p>
 
-        <button ng-if="objectToShare.isPublic == false" uib-tooltip="Click here to publish your work (Even not logged users will see it)" class="btn btn-xs btn-success" ng-click="Publish()" translate>Publish</button>
+        <button ng-if="!objectToShare.isPublic" uib-tooltip="Click here to publish your work (Even not logged users will see it)" class="btn btn-xs btn-success" ng-click="Publish()" translate>Publish</button>
         <button ng-if="objectToShare.isPublic == true" class="btn btn-xs btn-danger" ng-click="unPublish()" translate>Unpublish</button>
 
         <div ng-if="isWSTADMIN" class="row">
